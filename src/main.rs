@@ -1,26 +1,43 @@
 use std::io::{self, Write};
 
+// 计算字符串的显示宽度（考虑 Unicode 字符）
+fn display_width(s: &str) -> usize {
+    s.chars().map(|c| {
+        match c {
+            '。' | '！' | '？' | '，' | '。' | '、' => 1,
+            c if c.is_ascii() => 1,
+            c if c.is_whitespace() => 1,
+            _ => 2, // 中文字符等宽字符
+        }
+    }).sum()
+}
+
 fn main() {
-    println!("╔════════════════════════════════════╗");
-    println!("║     觉老师的喵喵 CLI v0.1.0     ║");
-    println!("╚════════════════════════════════════╝");
+    let title = "觉老师的喵喵 CLI v0.1.0";
+    let width = 36;
+    let title_width = display_width(title);
+    let padding = (width - title_width) / 2;
+    
+    println!("╔{:═^width$}╗", "", width = width);
+    println!("║{:^width$}║", title, width = width);
+    println!("╚{:═^width$}╝", "", width = width);
     println!();
     
-    let mut name = String::new();
+    let mut input_name = String::new();
     print!("请输入你的名字: ");
     io::stdout().flush().unwrap();
-    io::stdin().read_line(&mut name).unwrap();
+    io::stdin().read_line(&mut input_name).unwrap();
     
-    let mut name = name.trim();
+    let name = input_name.trim();
     if name.is_empty() {
-        name = "陌生人";
+        println!();
+        println!("你好, 陌生人!");
+    } else {
+        println!();
+        println!("你好, {}!", name);
     }
-    
-    println!();
-    println!("你好, {}!", name);
     println!();
     
-    // 简单的问答
     println!("选择题:");
     println!("1. 今天星期几?");
     println!("2. 觉老师可爱吗?");
@@ -46,8 +63,9 @@ fn main() {
                 println!("喵~");
             }
             "3" => {
+                let goodbye = if name.is_empty() { "陌生人" } else { name };
                 println!();
-                println!("再见, {}!", name);
+                println!("再见, {}!", goodbye);
                 println!("喵~");
                 break;
             }
