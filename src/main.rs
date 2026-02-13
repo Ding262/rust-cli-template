@@ -1,21 +1,10 @@
 use std::io::{self, Write};
-
-// 计算字符串的显示宽度（考虑 Unicode 字符）
-fn display_width(s: &str) -> usize {
-    s.chars().map(|c| {
-        match c {
-            '。' | '！' | '？' | '，' | '。' | '、' => 1,
-            c if c.is_ascii() => 1,
-            c if c.is_whitespace() => 1,
-            _ => 2, // 中文字符等宽字符
-        }
-    }).sum()
-}
+use unicode_width::UnicodeWidthStr;
 
 fn main() {
     let title = "觉老师的喵喵 CLI v0.1.0";
     let width = 36;
-    let title_width = display_width(title);
+    let title_width = title.width();
     let padding = (width - title_width) / 2;
     
     println!("╔{:═^width$}╗", "", width = width);

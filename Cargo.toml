@@ -13,3 +13,4 @@ categories = ["command-line-utilities"]
 readme = "README.md"
 
 [dependencies]
+unicode-width = "0.1"
