@@ -1,13 +1,13 @@
 [package]
-name = "{{PROJECT_NAME}}"
+name = "miao-cli"
 version = "0.0.0"
 edition = "2024"
 rust-version = "1.88.0"
 license = "MIT"
-description = "{{PROJECT_DESCRIPTION}}"
-authors = ["{{AUTHOR_NAME}} <{{AUTHOR_EMAIL}}>"]
-repository = "https://github.com/{{GITHUB_USERNAME}}/{{REPO_NAME}}"
-homepage = "https://github.com/{{GITHUB_USERNAME}}/{{REPO_NAME}}"
+description = "觉老师的喵喵 CLI 工具"
+authors = ["觉老师 <miao@example.com>"]
+repository = "https://github.com/Ding262/MiaoCli"
+homepage = "https://github.com/Ding262/MiaoCli"
 keywords = []
 categories = ["command-line-utilities"]
 readme = "README.md"

@@ -101,12 +101,12 @@ git push && git push --tags
 
 | 占位符 | 说明 |
 |--------|------|
-| `{{PROJECT_NAME}}` | 项目名称（kebab-case） |
-| `{{REPO_NAME}}` | GitHub 仓库名 |
-| `{{PROJECT_DESCRIPTION}}` | 项目描述 |
-| `{{GITHUB_USERNAME}}` | GitHub 用户名 |
-| `{{AUTHOR_NAME}}` | 作者名称 |
-| `{{AUTHOR_EMAIL}}` | 作者邮箱 |
+| `miao-cli` | 项目名称（kebab-case） |
+| `MiaoCli` | GitHub 仓库名 |
+| `觉老师的喵喵 CLI 工具` | 项目描述 |
+| `Ding262` | GitHub 用户名 |
+| `觉老师` | 作者名称 |
+| `miao@example.com` | 作者邮箱 |
 
 ## 许可证
 
