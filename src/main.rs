@@ -11,7 +11,7 @@ fn main() {
     io::stdout().flush().unwrap();
     io::stdin().read_line(&mut name).unwrap();
     
-    let name = name.trim();
+    let mut name = name.trim();
     if name.is_empty() {
         name = "陌生人";
     }
